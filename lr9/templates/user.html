@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Информация о пользователе</title></head>
+<body>
+
+<p>
+    <a href="/">Главная</a> |
+    <a href="/currencies">Список валют</a> |
+    <a href="/author">Об авторе</a> |
+    <a href="/users">Пользователи</a>
+</p>
+
+<hr>
+
+<h2>Информация о пользователе</h2>
+
+<p><b>Имя:</b> {{ user.name }}</p>
+<p><b>Возраст:</b> {{ user.age }}</p>
+
+<h3>Подписки на валюты:</h3>
+<ul>
+    {% for c in user.subscriptions %}
+        <li>
+            {{ c }}
+            <a href="/unsubscribe?user_id={{ user.id }}&currency={{ c }}">Удалить</a>
+        </li>
+    {% endfor %}
+    {% if user.subscriptions|length == 0 %}
+        <li>Нет подписок</li>
+    {% endif %}
+</ul>
+
+
+<h3>Подписаться на новую валюту:</h3>
+<ul>
+    {% for c in currencies %}
+        <li>
+            {{ c.char_code }}
+            <a href="/subscribe?user_id={{ user.id }}&currency={{ c.char_code }}">
+                Подписаться
+            </a>
+        </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>

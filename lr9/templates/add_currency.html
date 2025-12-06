@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Добавить валюту</title>
+</head>
+<body>
+
+<p>
+    <a href="/">Главная</a> |
+    <a href="/currencies">Список валют</a> |
+    <a href="/author">Об авторе</a> |
+    <a href="/users">Пользователи</a>
+</p>
+
+<hr>
+
+<h2>Добавить новую валюту</h2>
+
+<form action="/currency/add" method="get">
+    <p>Num code: <input type="text" name="num_code"></p>
+    <p>Char code: <input type="text" name="char_code"></p>
+    <p>Название: <input type="text" name="name"></p>
+    <p>Курс: <input type="text" name="value"></p>
+    <p>Номинал: <input type="text" name="nominal"></p>
+
+    <p>
+        <button type="submit">Добавить валюту</button>
+    </p>
+</form>
+
+</body>
+</html>
